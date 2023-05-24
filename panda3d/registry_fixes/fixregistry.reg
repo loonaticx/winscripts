@@ -114,3 +114,18 @@ Windows Registry Editor Version 5.00
 @=""
 "ExecutablePath"=""
 
+; Python 3.10
+[HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\3.10]
+@=""
+
+[HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\3.10\InstallPath]
+@=""
+"ExecutablePath"=""
+
+[HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\3.10\PythonPath]
+@=""
+"ExecutablePath"=""
+
+[HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\3.10\PythonPath\Panda3D]
+@=""
+"ExecutablePath"=""
