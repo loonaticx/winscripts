@@ -23,6 +23,13 @@ sizes = [4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]  # po2 sizes
 def get_closest(y):
     """ Return the closest power of 2 in either direction"""
     return min(sizes, key=lambda x: abs(x - y))
+    
+    
+def get_po2_res(im):
+    width, height = im.size
+    new_dimX = get_closest(width)
+    new_dimY = get_closest(height)
+    return (new_dimX, new_dimY)
 
 def checkpo2(im):
     name = im.filename
@@ -76,7 +83,10 @@ class Housekeep():
         try:
             im = Image.open(file)
             ft = im.format.upper()
-            po2(im).save(file)
+            bands = im.split()
+            bands = [b.resize(get_po2_res(im), Image.BILINEAR) for b in bands]
+            im = Image.merge('RGBA', bands)
+            im.save(file)
         except IOError:
             print("IO ERROR: Is file an image? -> ", file)
 
