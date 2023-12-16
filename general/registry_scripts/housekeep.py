@@ -85,7 +85,7 @@ class Housekeep():
             ft = im.format.upper()
             bands = im.split()
             bands = [b.resize(get_po2_res(im), Image.BILINEAR) for b in bands]
-            im = Image.merge('RGBA', bands)
+            im = Image.merge(im.mode, bands)
             im.save(file)
         except IOError:
             print("IO ERROR: Is file an image? -> ", file)
